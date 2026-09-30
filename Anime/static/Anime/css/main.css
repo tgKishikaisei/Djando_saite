@@ -92,3 +92,16 @@ form {
     width: 75%;
 }
 .creat h1 {font-size: 70px;}
+
+/* Сетка карточек идёт под блоком .features в той же колонке справа от меню */
+.anime-grid {
+    float: left;
+    width: 75%;
+    margin: 40px 0 0;
+    padding: 0 0.5rem;
+    row-gap: 24px;
+}
+.anime-grid .card-img-top {
+    height: 260px;
+    object-fit: cover;
+}

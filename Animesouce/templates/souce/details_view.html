@@ -1,5 +1,5 @@
 {% extends 'Anime/base.html' %}
-{% block title %} article.title {% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
     <div class="features">
@@ -7,8 +7,10 @@
         <h1>{{ article.title }}</h1>
         <p>{{ article.date }}</p>
         <p>{{ article.full_text }}</p>
-        <p>{{ article.image }}</p>
+        {% if article.image %}<img src="{{ article.image }}" alt="{{ article.title }}" class="img-fluid" referrerpolicy="no-referrer">{% endif %}
+        {% if user.is_staff %}
         <a href="{% url 'news-delete' article.id %}" class="btn btn-danger">Удалить</a>
         <a href="{% url 'news-update' article.id %}" class="btn btn-info">Редактировать</a>
+        {% endif %}
     </div>
 {% endblock %}

@@ -1,44 +1,49 @@
-## He!
+# Anime Moment
 
-### This project is made with Django site 
-### There you can find little but 
-### I can definitely say for beginners it can help
+Сайт аниме-новостей на Django. Главная показывает тайтлы с сезоном, раздел New хранит статьи, а раздел Creators рассказывает о студиях. Статьи пишут и правят только сотрудники сайта, прямо со страниц, без захода в админку.
 
-#### 1. Clone the GitHub repository:
-    
-    git clone https://github.com/KishikaiseiRimuraBehruz/Djando_saite.git
+[![License](https://img.shields.io/github/license/tgKishikaisei/Djando_saite)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/tgKishikaisei/Djando_saite/ci.yml?branch=main&label=CI)](https://github.com/tgKishikaisei/Djando_saite/actions/workflows/ci.yml)
 
-#### 2. Navigate to the project directory:
-    
-    cd Animesaite
+![Главная Anime Moment](docs/home.png)
 
-#### 3. (Recommended) Create a virtual environment to manage Python packages for your project:
-    
-    python3 -m venv venv
+## Возможности
 
-#### 4. Activate the virtual environment:
-   ### On Windows:
-    
-    .\venv\Scripts\activate
+- Каталог тайтлов с японским сезоном и картинкой по ссылке.
+- Лента статей: список, страница статьи, создание, редактирование и удаление для `is_staff`.
+- Форма с ошибками возвращается автору целиком, чтобы было видно, что исправить.
+- Страница Creators с заметками о студиях, которые админ заполняет в Django admin.
 
-   ### On macOS and Linux:
-    
-    source venv/bin/activate
+## Стек
 
-#### 5. Install the required Python packages from requirements.txt:
-    
-    pip install -r req.txt
+Python 3.12, Django 5.2 LTS, SQLite, Bootstrap 5.
 
-#### 6. Run command to perform migrations
-    
-    python manage.py makemigrations
+## Запуск
 
-    python manage.py migrate
+```bash
+git clone https://github.com/tgKishikaisei/Djando_saite.git
+cd Djando_saite
+python -m venv venv
+venv\Scripts\activate               # Linux и macOS: source venv/bin/activate
+pip install -r req.txt
+cp .env.example .env                 # впишите DJANGO_SECRET_KEY, для разработки DJANGO_DEBUG=1
+python manage.py migrate
+python manage.py createsuperuser     # этот пользователь сможет писать статьи
+python manage.py runserver
+```
 
-#### 7.Create superuser
-    
-    python manage.py createsuperuser
+Сгенерировать ключ: `python -c "from django.core.management.utils import get_random_secret_key as g; print(g())"`.
 
-#### 8.Start server
-    
-    python manage.py runserver
+## Тесты
+
+```bash
+python manage.py test
+```
+
+## Живая версия
+
+Публичного стенда нет, проект запускается локально.
+
+## Лицензия
+
+Код: [MIT](LICENSE) © 2023-2026 Behruz Avezmatov. Названия и арт аниме принадлежат их правообладателям.

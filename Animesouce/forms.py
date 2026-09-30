@@ -1,5 +1,5 @@
 from .models import New
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
+from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, URLInput
 
 class NewForm(ModelForm):
     class Meta:
@@ -23,8 +23,8 @@ class NewForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Текси статьи'
             }),
-            "image": Textarea(attrs={
+            "image": URLInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Фото'
+                'placeholder': 'Ссылка на картинку (https://...)'
             })
         }
